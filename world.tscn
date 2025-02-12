@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjoqmxkqnrpim"]
+[gd_scene load_steps=6 format=3 uid="uid://bjoqmxkqnrpim"]
 
 [ext_resource type="Texture2D" uid="uid://c4n25lt7y84ps" path="res://Spritesheet.png" id="1_hjxvd"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="2_1s1ds"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n6k2p"]
 texture = ExtResource("1_hjxvd")
@@ -3466,6 +3467,9 @@ separation = Vector2i(1, 1)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_n6k2p")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ldw0t"]
+size = Vector2(14.3333, 14.6667)
+
 [node name="World" type="Node2D"]
 
 [node name="Base" type="TileMap" parent="."]
@@ -3477,8 +3481,15 @@ layer_0/tile_data = PackedInt32Array(0, 1179649, 0, 65545, 1310721, 1, 65536, 11
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(178, 160)
+scale = Vector2(3, 3)
+script = ExtResource("2_1s1ds")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
+modulate = Color(0.420346, 0.736293, 0.624014, 1)
 texture = ExtResource("1_hjxvd")
 region_enabled = true
 region_rect = Rect2(528, 1, 14, 14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0.166664, 0)
+shape = SubResource("RectangleShape2D_ldw0t")
