@@ -15,3 +15,7 @@ func move(direction: Vector2) -> void:
 	var space_state = PhysicsServer2D.space_get_direct_state(space_rid)
 	var query = PhysicsRayQueryParameters2D.create(global_position, global_position + Vector2(48, 48) * direction)
 	var result = space_state.intersect_ray(query)
+	
+	if result:
+	if result.collider.is_in_group("Wall"):
+		return
