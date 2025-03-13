@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal player_moved
+
 func _physics_process(delta):
 	player_input()
 	
@@ -28,3 +30,4 @@ func move(direction: Vector2) -> void:
 			return
 			
 	position += 48 * direction
+	player_moved.emit()
