@@ -78,8 +78,8 @@ enemy_spawn_chance = 0.7
 coin_spawn_chance = 0.7
 heart_spawn_chance = 0.3
 max_enemies_per_room = 1
-max_coins_per_room = 2
-max_hearts_per_room = 2
+max_coins_per_room = 3
+max_hearts_per_room = 1
 
 [node name="Enemies" type="Node" parent="." groups=["Enemy_Manager"]]
 script = ExtResource("4_5ukr8")
