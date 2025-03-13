@@ -6,9 +6,6 @@ var health : int = 3
 var damage : int = 1
 var attack_chance : float = 0.5
 
-func _ready():
-	global_position = player.global_position + Vector2(48, 0)
-
 func move() -> void:
 	if randf() < 0.5:
 		return

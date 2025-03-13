@@ -18,7 +18,7 @@ var room_nodes : Array
 
 @export var max_enemies_per_room : int
 @export var max_coins_per_room : int
-@export var max_heart_per_room : int
+@export var max_hearts_per_room : int
 
 func _ready():
 	for i in range(map_width):

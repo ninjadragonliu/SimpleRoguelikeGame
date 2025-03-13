@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://drp0rytcdn5xh"]
+[gd_scene load_steps=8 format=4 uid="uid://drp0rytcdn5xh"]
 
 [ext_resource type="Script" uid="uid://b4xy0bnji3uv2" path="res://Scripts/room.gd" id="1_ckhhv"]
 [ext_resource type="Texture2D" uid="uid://cmw63sd5khbhi" path="res://Assets/Spritesheet.png" id="1_wrtmt"]
+[ext_resource type="PackedScene" uid="uid://cl3a33pyyf0fq" path="res://Nodes/enemy.tscn" id="2_flcef"]
+[ext_resource type="PackedScene" uid="uid://dp38k6arul5y0" path="res://Nodes/coin.tscn" id="3_tqq0j"]
+[ext_resource type="PackedScene" uid="uid://ydpci6eh8c5g" path="res://Nodes/heart.tscn" id="3_ulnet"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_go701"]
 texture = ExtResource("1_wrtmt")
@@ -1077,6 +1080,9 @@ sources/0 = SubResource("TileSetAtlasSource_go701")
 
 [node name="Room" type="Node2D"]
 script = ExtResource("1_ckhhv")
+enemy_node = ExtResource("2_flcef")
+coin_node = ExtResource("3_tqq0j")
+heart_node = ExtResource("3_ulnet")
 
 [node name="Base" type="TileMapLayer" parent="." groups=["Wall"]]
 scale = Vector2(3, 3)

@@ -38,7 +38,7 @@ func generate_interior() -> void:
 		spawn_node(enemy_node, 1, Generation.max_enemies_per_room)
 	if randf_range(0, 1) < Generation.coin_spawn_chance:
 		spawn_node(coin_node, 1, Generation.max_coins_per_room)
-	if randf_range(0, 1) < Generation.health_spawn_chance:
+	if randf_range(0, 1) < Generation.heart_spawn_chance:
 		spawn_node(heart_node, 1, Generation.max_hearts_per_room)
 
 func spawn_node(node_scene : PackedScene, min_ins : int = 0, max_ins : int = 0):
