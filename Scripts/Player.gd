@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+var has_key : bool = false
+
 signal player_moved
 
 func _physics_process(delta):
