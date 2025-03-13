@@ -3,6 +3,11 @@ extends CanvasLayer
 @onready var player : CharacterBody2D = get_tree().get_first_node_in_group("Player")
 @onready var Generation : Node = $"../Generation"
 
+@onready var grid : PackedScene = load("res://Nodes/mini_map_grid.tscn")
+
+func _ready() -> void:
+	generate_mini_map()
+
 func _process(delta: float) -> void:
 	$StatBar/Coins.text = str(Global.coins)
 	
@@ -59,3 +64,15 @@ func _process(delta: float) -> void:
 			$"HealthBar/Heart 2".frame = 0
 			$"HealthBar/Heart 3".frame = 0
 			$"HealthBar/Heart 4".frame = 0
+
+func generate_mini_map() -> void:
+	$MiniMap/GridContainer.columns = Generation.map_width
+	for i in range(Generation.map_height):
+		for j in range(Generation.map_width):
+			var panel = grid.instantiate()
+			if Generation.map[j][i] == false:
+				panel.modulate = "ffffff00"
+			else:
+				panel.is_room = true
+			panel.pos = Vector2i(j, i)
+			$MiniMap/GridContainer.add_child(panel)
