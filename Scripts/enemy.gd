@@ -36,3 +36,14 @@ func get_random_direction() -> Vector2:
 		3:
 			return Vector2.LEFT
 	return Vector2.ZERO
+
+func take_damage(damage_taken : int) -> void:
+	health -= damage_taken
+	
+	if health <= 0:
+		queue_free()
+	
+	$AnimationPlayer.play("Hit")
+	
+	if randf() > attack_chance:
+		player.take_damage(damage)

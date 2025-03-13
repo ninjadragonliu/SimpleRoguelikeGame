@@ -17,6 +17,7 @@ func _ready():
 		map.append([])
 		for j in range(map_height):
 			map[i].append(false)
+	seed(Global.seed)
 	generate()
 			
 func generate() -> void:
