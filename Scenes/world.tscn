@@ -122,7 +122,7 @@ script = ExtResource("3_5a7ea")
 [node name="Enemies" type="Node" parent="."]
 script = ExtResource("4_5ukr8")
 
-[node name="Enemy" type="CharacterBody2D" parent="." groups=["Enemy"]]
+[node name="Enemy" type="CharacterBody2D" parent="." groups=["Enemy", "Wall"]]
 position = Vector2(239, 77)
 scale = Vector2(3, 3)
 script = ExtResource("4_fo5ed")

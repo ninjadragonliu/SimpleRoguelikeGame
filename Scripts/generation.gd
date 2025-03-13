@@ -12,6 +12,14 @@ var first_room_pos : Vector2
 var map : Array
 var room_nodes : Array
 
+@export var enemy_spawn_chance : float
+@export var coin_spawn_chance : float
+@export var heart_spawn_chance : float
+
+@export var max_enemies_per_room : int
+@export var max_coins_per_room : int
+@export var max_heart_per_room : int
+
 func _ready():
 	for i in range(map_width):
 		map.append([])

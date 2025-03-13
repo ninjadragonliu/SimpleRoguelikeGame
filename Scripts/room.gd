@@ -5,9 +5,18 @@ var inside_height : int = 9
 
 @onready var Generation : Node
 
-#func _ready():
-	#if Generation:
-		#generate_interior()
+@export var enemy_node : PackedScene
+@export var coin_node : PackedScene
+@export var heart_node : PackedScene
+@export var key_node : PackedScene
+@export var exit_door_node : PackedScene
+
+var used_position : Array
+
+func _ready():
+	if Generation:
+		generate_interior()
+
 func north():
 	$NorthDoor.visible = true
 	$NorthWall.queue_free()
