@@ -64,6 +64,21 @@ func _process(delta: float) -> void:
 			$"HealthBar/Heart 2".frame = 0
 			$"HealthBar/Heart 3".frame = 0
 			$"HealthBar/Heart 4".frame = 0
+	
+	$MiniMap/Label.text = "Level" + str(Global.level)
+	update_mini_map()
+	
+
+func update_mini_map() -> void:
+	var pos : Vector2i = (player.global_position / 816)
+	var panels = $MiniMap/GridContainer.get_children()
+	
+	for panel in panels:
+		if panel.is_room:
+			panel.modulate = "ffffff"
+		if panel.pos == pos:
+			panel.modulate = "007a27"
+
 
 func generate_mini_map() -> void:
 	$MiniMap/GridContainer.columns = Generation.map_width
