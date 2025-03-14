@@ -39,7 +39,9 @@ func move(direction: Vector2) -> void:
 	if result:
 		if result.collider.is_in_group("Wall"):
 			return
-			
+	
+	$SFX.stream = load("res://Assets/SFX/walk.wav")
+	$SFX.play()
 	position += 48 * direction
 	player_moved.emit()
 
@@ -58,7 +60,11 @@ func try_attack(direction: Vector2) -> void:
 func take_damage(damage_taken : int) -> void:
 	Global.health -= damage_taken
 	
+	$AnimationPlayer.play("Hit")
+	$SFX.stream = load("res://Assets/SFX/Hit.wav")
+	$SFX.play()
+	
 	if Global.health <= 0:
+		Sfx.get_child(4).play()
 		get_tree().reload_current_scene()
 	
-	$AnimationPlayer.play("Hit")

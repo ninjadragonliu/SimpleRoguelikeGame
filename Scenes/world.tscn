@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://bjoqmxkqnrpim"]
+[gd_scene load_steps=15 format=3 uid="uid://bjoqmxkqnrpim"]
 
 [ext_resource type="Script" uid="uid://bo28y6g821puq" path="res://Scripts/Player.gd" id="2_1s1ds"]
+[ext_resource type="AudioStream" uid="uid://di472rmv7wovg" path="res://Assets/SFX/walk.wav" id="2_5ukr8"]
 [ext_resource type="Script" uid="uid://cbwfwjh8iqn5b" path="res://Scripts/generation.gd" id="3_5a7ea"]
 [ext_resource type="Script" uid="uid://ckyqiocu2pt5d" path="res://Scripts/enemies.gd" id="4_5ukr8"]
 [ext_resource type="Texture2D" uid="uid://cmw63sd5khbhi" path="res://Assets/Spritesheet.png" id="4_8j60k"]
@@ -76,12 +77,15 @@ position = Vector2(0.166664, 0)
 shape = SubResource("RectangleShape2D_ldw0t")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(0.1, 0.1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
 libraries = {
 &"": SubResource("AnimationLibrary_0fj1v")
 }
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("2_5ukr8")
+volume_db = -20.0
 
 [node name="Generation" type="Node" parent="."]
 script = ExtResource("3_5a7ea")

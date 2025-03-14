@@ -37,6 +37,9 @@ func get_random_direction() -> Vector2:
 func take_damage(damage_taken : int) -> void:
 	health -= damage_taken
 	
+	$SFX.stream = load("res://Assets/SFX/Hit.wav")
+	$SFX.play()
+	
 	if health <= 0:
 		queue_free()
 	
