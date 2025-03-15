@@ -51,8 +51,6 @@ func try_attack(direction: Vector2) -> void:
 	var query = PhysicsRayQueryParameters2D.create(global_position, global_position + Vector2(48, 48) * direction)
 	var result = space_state.intersect_ray(query)
 	
-	print(Global.health)
-	
 	if result:
 		if result.collider.is_in_group("Enemy"):
 			result.collider.take_damage(1)
@@ -66,5 +64,5 @@ func take_damage(damage_taken : int) -> void:
 	
 	if Global.health <= 0:
 		Sfx.get_child(4).play()
-		get_tree().reload_current_scene()
+		get_tree().change_scene_to_file("res://Scenes/death_menu.tscn")
 	

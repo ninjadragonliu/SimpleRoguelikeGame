@@ -41,6 +41,7 @@ func take_damage(damage_taken : int) -> void:
 	$SFX.play()
 	
 	if health <= 0:
+		Global.enemies_defeated += 1
 		queue_free()
 	
 	$AnimationPlayer.play("Hit")
